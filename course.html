@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Profile</title>
+    
+    <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+    
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="app-layout">
+    <header class="main-header">
+        <div class="nav-content">
+            <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 10px;">
+                <img src="Logo.png" alt="Logo" style="height: 32px; width: auto;"> 
+                <h1>Weekend 5k</h1>
+            </a>
+            <nav class="view-toggle">
+                <a href="index.html" class="toggle-btn">Map View</a>
+                <a href="list.html" class="toggle-btn">List View</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="scroll-container">
+        
+        <div class="course-container" id="capture-area">
+            <header class="course-header">
+                <div class="header-top-row">
+                    <div class="title-area">
+                        <a href="index.html" class="back-link">← BACK TO MAP</a>
+                        <div id="course-badges" class="badge-container">
+                            <span class="stat-badge">Loading...</span>
+                        </div>
+                        <h1 id="course-title">Loading...</h1>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <a id="course-website" href="#" target="_blank" class="website-link" style="display: none;">
+                            Official Website ↗
+                        </a>
+                        
+                        <button id="share-btn" onclick="exportCourseImage()">
+                            <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+                            Share Profile
+                        </button>
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-tile">
+                        <span class="label">ASCENT</span>
+                        <span class="value" id="ascent-val">--</span>
+                    </div>
+                    <div class="stat-tile">
+                        <span class="label">DESCENT</span>
+                        <span class="value" id="descent-val">--</span>
+                    </div>
+                    <div class="stat-tile">
+                        <span class="label">START TIME</span>
+                        <span class="value" id="time-val">--</span>
+                    </div>
+                </div>
+            </header>
+
+            <div id="course-map"></div>
+            
+            <div class="chart-container">
+                <div id="elevationChart" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+
+        <footer class="main-footer">
+            <div class="footer-content">
+                <span class="footer-logo">Weekend 5k</span>
+                <p class="footer-disclaimer">
+                    Weekend 5k is an independent, unofficial project built for the community. 
+                    We are <strong>not</strong> an official parkrun website and are not affiliated with, 
+                    authorized, or endorsed by parkrun Global Limited in any way.
+                </p>
+            </div>
+        </footer>
+    </main>
+
+    <script src="course-logic.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0; background: #f8fafc; color: #0f172a;
+}
+
+.course-container {
+    max-width: 900px; margin: 40px auto;
+    background: white; border-radius: 16px; overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.course-header { padding: 30px; display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid #f1f5f9; }
+h1 { margin: 5px 0; font-size: 32px; font-weight: 800; letter-spacing: -0.025em; }
+
+.badge {
+    padding: 6px 14px; border-radius: 6px; font-size: 12px; font-weight: 800;
+    text-transform: uppercase; background: #f1f5f9; color: #64748b;
+}
+
+/* Badge colors matching logic across all pages */
+.very-flat { background: #eab308; color: white; }
+.flat { background: #10b981; color: white; }
+.undulating { background: #3b82f6; color: white; }
+.hilly { background: #f59e0b; color: white; }
+.very-hilly { background: #ef4444; color: white; }
+
+.stats-grid { display: flex; gap: 30px; }
+.stat-tile { display: flex; flex-direction: column; align-items: flex-end; }
+.stat-tile .label { font-size: 11px; color: #64748b; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; }
+.stat-tile .value { font-size: 24px; font-weight: 800; color: #3b82f6; }
+
+#course-map { height: 400px; width: 100%; border-bottom: 1px solid #f1f5f9; }
+
+.chart-container {
+    padding: 30px; background: #ffffff; height: 300px; 
+    width: 100%; position: relative; box-sizing: border-box;
+}
+
+#elevationChart { width: 100% !important; height: 100% !important; }

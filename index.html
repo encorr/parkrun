@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekend 5k | Map View</title>
+    
+    <script src="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.js"></script>
+    <link href="https://unpkg.com/maplibre-gl@3.6.0/dist/maplibre-gl.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+</head>
+<body class="app-layout map-view-page">
+    <header class="main-header">
+        <div class="nav-content">
+            <h1>Weekend 5k</h1>
+            <nav class="view-toggle">
+                <a href="index.html" class="toggle-btn active">Map View</a>
+                <a href="list.html" class="toggle-btn">List View</a>
+            </nav>
+        </div>
+        <button id="mobile-filter-toggle" class="mobile-toggle-btn" onclick="toggleFilters()">
+    Show Filters ▾
+</button>
+        <div class="filter-bar">
+            
+            <div class="filter-group">
+                <label>Find a Course</label>
+                <input type="text" id="searchInput" placeholder="Enter name..." oninput="handleControls()">
+            </div>
+            <div class="filter-group">
+                <label>Location</label>
+                <div id="location-dropdown" class="dropdown-check-list">
+                    <span class="anchor">All Ireland</span>
+                    <ul class="items" id="location-items"></ul>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Difficulty</label>
+                <select id="gradeFilter" onchange="handleControls()">
+                    <option value="All">All Grades</option>
+                    <option value="Very Flat">Very Flat</option>
+                    <option value="Flat">Flat</option>
+                    <option value="Undulating">Undulating</option>
+                    <option value="Hilly">Hilly</option>
+                    <option value="Very Hilly">Very Hilly</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Route Type</label>
+                <select id="routeTypeFilter" onchange="handleControls()">
+                    <option value="All">All Types</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Terrain</label>
+                <select id="terrainFilter" onchange="handleControls()">
+                    <option value="All">All Terrains</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Sort By</label>
+                <select id="sortOrder" onchange="handleControls()">
+                    <option value="default">Default</option>
+                    <option value="flat">Flattest First</option>
+                    <option value="hilly">Hilliest First</option>
+                </select>
+            </div>
+        <div class="filter-group">
+    <label>&nbsp;</label> <button class="reset-btn" onclick="resetFilters()">Reset</button>
+</div>
+        
+        </div>
+    </header>
+    <div id="main-container">
+        <div id="sidebar"><div id="location-list"></div></div>
+        <div id="map"></div>
+    </div>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <span class="footer-logo">Weekend 5k</span>
+            <p class="footer-disclaimer">
+                Weekend 5k is an independent, unofficial project built for the community. 
+                We are <strong>not</strong> an official parkrun website and are not affiliated with, 
+                authorized, or endorsed by parkrun Global Limited in any way.
+            </p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
